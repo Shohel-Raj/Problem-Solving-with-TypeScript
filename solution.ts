@@ -11,3 +11,19 @@ function formatValue(value: string | number | boolean): string | number | boolea
       return check;                      // Forces TypeScript to ensure all cases handled
   }
 }
+
+
+function getLength(value: string | any[]): number {
+  if (typeof value === "string") {
+    return value.length;             
+  }
+
+  if (Array.isArray(value)) {
+    return value.length;             
+  }
+
+  const never: never = value;       
+  return never;
+}
+
+
