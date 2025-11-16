@@ -86,3 +86,24 @@ function getUniqueValues(arr1: number[], arr2: number[]): number[] {
 
   return uniqueValues;
 }
+
+
+interface Product {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+
+function calculateTotalPrice(products: Product[]): number {
+  if (products.length === 0) return 0;
+
+  const prices = products.map(product => {
+    const basePrice = product.price * product.quantity;
+    return product.discount ? basePrice * (1 - product.discount / 100) : basePrice;
+  });
+
+  return prices.reduce((total, price) => total + price, 0);
+}
+
+
