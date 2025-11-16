@@ -28,17 +28,17 @@ function getLength(value: string | any[]): number {
 
 
 
-// class Person {
+class Person {
   
 
-//   constructor(public name: string, public age: number) {
+  constructor(public name: string, public age: number) {
 
-//   }
+  }
 
-//   getDetails(): string {
-//     return `Name: ${this.name}, Age: ${this.age}`;  
-//   }
-// }
+  getDetails(): string {
+    return `Name: ${this.name}, Age: ${this.age}`;  
+  }
+}
 
 
 
@@ -78,14 +78,20 @@ function getBookDetails(book: Book): string {
 }
 
 
-function getUniqueValues(arr1: number[], arr2: number[]): number[] {
+function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
+  const combined: T[] = [...arr1, ...arr2];
+  const unique: T[] = [];
 
-  const combined = [...arr1, ...arr2];
+  for (const item of combined) {
+    if (!unique.includes(item)) {
+      unique.push(item);
+    }
+  }
 
-  const uniqueValues = Array.from(new Set(combined));
-
-  return uniqueValues;
+  return unique;
 }
+
+// Example
 
 
 interface Product {
