@@ -78,3 +78,11 @@ function getBookDetails(book: Book): string {
 }
 
 
+function getUniqueValues(arr1: number[], arr2: number[]): number[] {
+
+  const combined = [...arr1, ...arr2];
+
+  const uniqueValues = Array.from(new Set(combined));
+
+  return uniqueValues;
+}
