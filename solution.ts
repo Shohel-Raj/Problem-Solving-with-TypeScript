@@ -42,3 +42,13 @@ class Person {
 
 
 
+interface Item {
+  title: string;
+  rating: number; 
+}
+
+function filterByRating(items: Item[]): Item[] {
+  return items.filter(item => item.rating >= 4);
+}
+
+
