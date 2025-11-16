@@ -28,17 +28,17 @@ function getLength(value: string | any[]): number {
 
 
 
-class Person {
+// class Person {
   
 
-  constructor(public name: string, public age: number) {
+//   constructor(public name: string, public age: number) {
 
-  }
+//   }
 
-  getDetails(): string {
-    return `Name: ${this.name}, Age: ${this.age}`;  
-  }
-}
+//   getDetails(): string {
+//     return `Name: ${this.name}, Age: ${this.age}`;  
+//   }
+// }
 
 
 
@@ -51,4 +51,15 @@ function filterByRating(items: Item[]): Item[] {
   return items.filter(item => item.rating >= 4);
 }
 
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+}
+
+function filterActiveUsers(users: User[]): User[] {
+  return users.filter(user => user.isActive === true);
+}
 
